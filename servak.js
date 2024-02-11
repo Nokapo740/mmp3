@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/mus.html')
 })
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/ssshhhiiittt_-_Tancy_71593187.mp3')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
