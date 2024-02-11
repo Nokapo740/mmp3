@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayauzhan krasotka</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0C0B0B;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    overflow-x: hidden;
+}
+
+h1 {
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.default-container {
+    max-width: 1716px;
+    margin: auto;
+}
+
+header {
+    /* background-color: green; */
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+header .header-nav {
+    display: flex;
+    height: 56px;
+}
+
+header .header-nav ul {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header-nav-elems {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+ul.second-menu>li>a {
+    padding: 0 0 0 17px;
+}
+
+ul.second-menu>li:last-child {
+    margin-left: 17px;
+}
+
+
+ul.second-menu>li:last-child>a {
+    border: solid 1px white;
+    width: 80px;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+ul.second-menu>li:nth-last-child(2) {
+    margin-left: 100px;
+}
+
+ul.second-menu>li:first-child>a {
+    margin-right: 10px;
+}
+
+ul.second-menu>li:first-child>a::after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #FF3C00;
+    border-radius: 50%;
+    left: 64px;
+    top: 14px;
+}
+
+
+main {
+    /* height: 100vh; */
+}
+
+
+.main-slider-img {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hero-movie {
+    height: 75vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.hero-movie>p:first-child {
+    font-size: 64px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.hero-movie>p:nth-child(2) {
+    font-size: 15px;
+    padding-bottom: 26px;
+}
+
+button {
+    width: 209px;
+    height: 57px;
+    font-size: 20px;
+    background-color: #FF501A;
+    color: white;
+    border: solid 0px;
+    cursor: pointer;
+}
+
+.next-main-slider-dots {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-main-slider-dots>span {
+    width: 13px;
+    height: 13px;
+    background-color: #808080;
+    z-index: 1;
+    margin: 0 0 0 13px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.next-main-slider-dots>span.active {
+    background-color: #DFDFDF;
+}
+
+
+.fader-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fader-bg .fader-gradient-0 {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.01) 77.36%, rgba(0, 0, 0, 0.01) 77.36%, #0C0B0B 96.82%);
+    position: absolute;
+}
+
+.fader-bg .fader-gradient-1 {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(277.92deg, rgba(0, 0, 0, 0) 7.66%, rgba(0, 0, 0, 0.88) 89.67%);
+}
+
+
+.lbl-p {
+    font-size: 20px;
+    position: relative;
+}
+
+.posters-now {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
+    gap: 10px;
+}
+
+.poster-now {
+    min-width: 277px;
+    min-height: 155px;
+    background-color: #0C0B0B;
+    transition: 250ms all;
+    z-index: 2;
+}
+
+.poster-now:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.poster-now-lbls {
+    font-size: 16px;
+}
+
+.poster-now-lbls>p:first-child {
+    font-size: 13px;
+    color: #7E7E7E;
+}
+
+.poster-now>img {
+    height: auto;
+}
+
+
+.posters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+    gap: 9px;
+}
+
+.poster {
+    background-color: green;
+    min-width: 237px;
+    min-height: 350px;
+    position: relative;
+    transition: 250ms all;
+}
+
+.poster:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+
+.default-container>p {
+    margin-top: 62px;
+    margin-bottom: 19px;
+}
+
+footer {
+    margin-top: 257px;
+}
+
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(181px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+}
+
+.f-item p {
+    color: #6A6A6A;
+    font-size: 18px;
+}
+
+
+.footer-social {
+    margin-top: 42px;
+}
+
+.footer-social p {
+    color: #6A6A6A;
+    font-size: 18px;
+}
+
+.footer-social a>img {
+    width: 32.57px;
+    height: 32.2px;
+    margin-top: 8px;
+    margin-right: 16px;
+}
+
+.footer-copy-text {
+    font-size: 14px;
+    color: #636363;
+    padding: 36px 0 6px 0;
+}
+
+
+
+
+
+nav.nav-desktop {
+    display: none;
+}
+
+nav.nav-mobile {
+    display: none;
+    background-color: #000000;
+}
+
+.second-menu-mobile {
+    display: none;
+    position: absolute;
+    width: 100%;
+}
+
+@media(min-width: 1200px) {
+    nav.nav-desktop {
+        display: block;
+    }
+}
+
+@media(max-width: 1199px) {
+    nav.nav-mobile {
+        display: block;
+    }
+}
+
+.header-nav-elems-mobile>ul:first-child {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.header-nav-elems-mobile>ul:last-child {
+    background-color: #434343;
+    text-align: center;
+    padding: 32px;
+}
+
+.second-menu-mobile>li {
+    padding-bottom: 19px;
+}
+
+.mobile-btn {
+    cursor: pointer;
+}
+
+
+@media(max-width: 375px) {
+    .hero-movie {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-movie>p:first-child {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .hero-movie>p:nth-child(2) {
+        font-size: .7rem;
+        text-align: center;
+    }
+
+    button {
+        width: auto;
+        height: auto;
+        font-size: .7rem;
+        padding: .5rem;
+    }
+
+    .next-main-slider-dots {
+        justify-content: center;
+    }
+
+    /* POSTERS */
+    .posters-now {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+    
+    .poster-now {
+        min-width: auto;
+        min-height: auto;
+    }
+
+    .posters {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+    
+    .poster {
+        min-width: auto;
+        min-height: auto;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+}
+
+@media(max-width: 812px) {
+    .hero-movie {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-movie>p:first-child {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .hero-movie>p:nth-child(2) {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    button {
+        width: auto;
+        height: auto;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .next-main-slider-dots {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 1723px) {
+    .default-container {
+        padding: 0 2% 0 2%;
+    }
+}
+
+
+.player {
+    position: relative;
+    width: 100%;
+}
+
+.player::after {
+    display: block;
+    content: '';
+    padding-top: 56.25%;
+}
+
+.player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tabs-titles {
+    display: flex;
+    margin-top: 20px;
+}
+
+.tabs-titles li {
+    padding-right: 45px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tabs-titles li.active {
+    font-weight: 600;
+}
+
+.tabs {
+    margin-top: 21px;
+}
+
+.tabs p {
+    color: #CDCDCD;
+}
+
+.tabs p:last-child {
+    padding-top: 24px;
+    color: #878787;
+}
+
+.qq{
+    height: 20px;
+    justify-content: center;
+    width: auto;
+    
+}
+
+img{
+    object-fit: cover;
+}
+.ee{
+    width: 40%;
+    border-radius: 10px;
+    border: #000000;
+    border-width: 5px;
+    justify-content: center;
+}
+  </style>
+
+</head>
+<body>
+    <header>
+        <nav class="header-nav nav-desktop">
+            <div class="header-nav-elems default-container">
+                <ul>
+                    <li>
+                        <a href="/" class="logo">
+                            <img class="qq" src="Ayauzhan.svg" alt="logo">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="second-menu">
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="mus.html">MUSIC</a></li>
+                    <li><a href="#">ERIKPE</a></li>
+                    <li><a href="#">OBSHAGA</a></li>
+                    <li><a href="#">DOMOI</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="nav-mobile">
+            <div class="header-nav-elems-mobile">
+                <ul>
+                    <li class="mobile-btn">
+                        <li><a>Ayauzhan</a></li>
+                    </li>
+                </ul>
+                <ul class="second-menu-mobile">
+                    <li><a href="#">GALLERY</a></li>
+                    <li><a href="mus.html">MUSIC</a></li>
+                    <li><a href="#">ERIKPE</a></li>
+                    <li><a href="#">OBSHAGA</a></li>
+                    <li><a href="#">DOMOI</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="default-container">
+            <div class="player">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3pLcXmUJzms?si=Ov2N__CYwhAq5KEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+            </div>
+        </section>
+
+        <section class="default-container">
+            <ul class="tabs-titles">
+                <li class="active">С днем рождения!</li>
+                <li>💕💕💕</li>
+            </ul>
+
+            <div class="tabs">
+                <div class="tab">
+                    <p>Ne step jatsin?</p>
+                    <p>(2007) · 12 Февраля</p>
+                    <p>Дорогая Аяужан,
+
+                        Поздравляю тебя с этим волшебным днем! Пусть каждый новый год твоей жизни приносит еще больше счастья, любви и вдохновения. Желаю тебе оставаться такой же светлой, красивой, умной и невероятно талантливой. Пусть каждый твой день будет наполнен улыбками, теплом и радостью, а в сердце всегда живет любовь и гармония.
+                        
+                        Помни, что перед тобой открыты все дороги, и ты можешь достичь любой вершины, к которой стремишься. Пусть твои мечты сбываются, а цели достигаются легко и с радостью. Желаю тебе здоровья, стойкости, удачи и благополучия во всех начинаниях.
+                        
+                        Пусть этот день рождения будет началом самой удивительной главы в твоей жизни. И пусть каждый следующий день будет еще лучше предыдущего. С любовью и лучшими пожеланиями на твой день рождения и на каждый день после него.
+                        
+                        С днем рождения!
+                        
+                        С любовью, Ибрахимушка 💕💕💕
+                    </p>
+                </div>
+                <div class="tab">Cast & Crew</div>
+            </div>
+        </section>
+
+
+        <section class="default-container">
+            <p class="lbl-p">Related Shows and Movies</p>
+            
+                <style>
+                    .modal {
+                        display: none; 
+                        position: fixed; 
+                        z-index: 1; 
+                        left: 0;
+                        top: 0;
+                        width: 100%; 
+                        height: 100%; 
+                        overflow: auto; 
+                        background-color: rgba(0,0,0,0.4); 
+                    }
+                    
+                    .modal-content {
+                        background-color: #fefefe;
+                        margin: 10% auto; 
+                        padding: 20px;
+                        border: 1px solid #888;
+                        width: 50%; 
+                    }
+                    
+                    .close {
+                        color: #aaaaaa;
+                        float: right;
+                        font-size: 3.5em;
+                        font-weight: bold;
+                    }
+                    
+                    .close:hover,
+                    .close:focus {
+                        color: #000;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    .ews{
+                        color: #000;
+                    }
+                    </style>
+                    <script>
+                        // Инициализация модальных окон после загрузки DOM
+                        document.addEventListener('DOMContentLoaded', function () {
+                            function setupModal(openButtonId, modalId) {
+                                var btn = document.getElementById(openButtonId);
+                                var modal = document.getElementById(modalId);
+                                var closeBtns = modal.getElementsByClassName("close");
+                    
+                                btn.onclick = function() {
+                                    modal.style.display = "block";
+                                };
+                    
+                                Array.from(closeBtns).forEach(closeBtn => {
+                                    closeBtn.onclick = function() {
+                                        modal.style.display = "none";
+                                    };
+                                });
+                    
+                                window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                };
+                            }
+                    
+                            // Проверьте, что у вас правильные ID для каждого вызова
+                            setupModal("openModal1", "modal1");
+                            setupModal("openModal2", "modal2");
+                            setupModal("openModal3", "modal3");
+                            setupModal("openModal4", "modal4");
+                            setupModal("openModal5", "modal5");
+                            setupModal("openModal6", "modal6");
+                            setupModal("openModal7", "modal7");
+                        });
+                    </script>
+                        <!-- Модальное окно 1 -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal1">&times;</span>
+                              <p class="ews">Твоя улыбка светит ярче любых лучей заходящего солнца, а твои глаза переливаются всеми оттенками неба в этот волшебный момент. Ты наполняешь мою жизнь теплом и светом, так же, как закат наполняет вечернее небо, делая его незабываемым.
+                                Так же, как закат символизирует завершение дня, но также и обещание нового начала, так и ты напоминаешь мне, что после каждого трудного дня следует новый, полный надежд и возможностей. Ты мое напоминание о том, что даже в самые темные моменты всегда найдется свет.</p>
+                                <br> 
+                                <img class="ee" src="https://sportishka.com/uploads/posts/2022-11/1667482114_4-sportishka-com-p-svyashchennaya-gora-krasivo-4.jpg" alt="">
+                            </div>
+                          </div>
+                          
+                          <!-- Модальное окно 2 -->
+                          <div id="modal2" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal2">&times;</span>
+                              <p class="ews">Ты красива, как величественные горы, возвышающиеся над миром в своем тихом великолепии. Твоя красота — это нечто более глубокое, чем просто внешность; это сила и стойкость, спокойствие и мощь, которые вдохновляют и завораживают. Как и горы, ты обладаешь уникальной, неповторимой красотой, которая не поддается времени и изменениям, оставаясь вечной в своем совершенстве.
+
+Твои глаза напоминают озера, глубоко спрятанные среди горных вершин, отражая небеса и храня в себе миры, полные тайн и чудес. Твои улыбка и смех перекликаются с журчанием горных ручьев, наполняя пространство вокруг светом и радостью.</p>
+<br>
+<img class="ee" src="https://4x4photo.ru/wp-content/uploads/2023/07/5455bbb5-c02b-4d09-93d9-5740673e9aab-2048x1365.jpg" alt="">                            
+</div>
+                          </div>
+
+                          <!-- Модальное окно 3 -->
+                          <div id="modal3" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal3">&times;</span>
+                              <p class="ews">День студента, все сидели сами по себе и друг дргуа не знали😂<br>
+<img class="ee" src="https://img.redzhina.ru/img/af/85/1200/af8506b56073f2554d343450efcae80f.jpg" alt="">                            
+</div>
+                          </div>
+
+                          <!-- Модальное окно 4 -->
+                          <div id="modal4" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal4">&times;</span>
+                              <p class="ews">Мы в этот день впервые гуляли, да еще и в 7 утра🤦‍♂️<br>За то кофе попили:)<br>
+<img class="ee" src="https://w.forfun.com/fetch/d4/d4dda5ad59e500cadf49629f8a5087a3.jpeg" alt="">                            
+</div>
+                          </div>
+
+                          <!-- Модальное окно 5 -->
+                          <div id="modal5" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal5">&times;</span>
+                              <p class="ews">Я всегда так классно лежал на столе, но его убрали(( <br>Выгляжу как эль примо
+<img class="ee" src="https://cdn.musebycl.io/2019-10/BRAWLMATION_00294.jpg" alt="">                            
+</div>
+                          </div>
+
+                          <!-- Модальное окно 6 -->
+                          <div id="modal6" class="modal">
+                            <div class="modal-content">
+                              <span class="close" data-modal="modal6">&times;</span>
+                              <p class="ews">Нуар, За бортом, Битва за Рокуган. Мы лежали и играли все эти настольные игры<br>
+<img class="ee" src="https://oflex.ru/wp-content/uploads/2020/11/glavnaya.jpeg" alt="">                            
+</div>
+                          </div>
+                          </div>
+                          <div class="posters">
+                <div class="poster"><img id="openModal1" src="https://www.furtenbachadventures.com/wp-content/uploads/view_7800_everest-e1564406006156.jpg" alt=""></div>
+                
+                <div class="poster"><img id="openModal2" src="https://fikiwiki.com/uploads/posts/2022-02/1645018918_23-fikiwiki-com-p-zakati-krasivie-kartinki-24.jpg" alt=""></div>
+                
+                <div class="poster"><img id="openModal3" src="Den_studenta.jpg" alt=""></div>
+
+                <div class="poster"><img id="openModal4" src="lavashfood.jpg" alt=""></div>
+
+                <div class="poster"><img id="openModal5" src="ibra_lezhit.jpg" alt=""></div>
+
+                <div class="poster"><img id="openModal6" src="igraem.jpg" alt=""></div>
+                
+               </div>
+        </section>
+    </main>
+
+    <footer>
+        
+
+        <div class="footer-social default-container">
+            <p>С днем рождения:</p>
+            <a href="#">
+                <img src="https://image.jimcdn.com/app/cms/image/transf/none/path/s83454910757ac7b0/image/i3d85c30d0d7cbb16/version/1639052728/image.png" alt="social">
+            </a>
+            <a href="#">
+                <img src="https://e7.pngegg.com/pngimages/145/659/png-clipart-computer-icons-instagram-encapsulated-postscript-instagram-cdr-text.png" alt="social">
+            </a>
+        </div>       
+        
+
+        <div class="footer-copy-text">
+            <div class="default-container">
+                © All rights reserved.
+            </div>
+        </div>
+    </footer>
+  
+    <script>
+        const checkpoint = 600;
+        let nav_bg = 'transparent';
+        let opacity = 1;
+        
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if(currentScroll <= checkpoint) {
+                nav_bg = 'transparent';
+                opacity = 1 - currentScroll / checkpoint;
+            } else {
+                nav_bg = '#000';
+                opacity = 0;
+            }
+        
+            document.querySelector(".header-nav").style.background = nav_bg;
+        });
+        
+        
+        const menu = document.querySelector('.mobile-btn');
+        const submenu = document.querySelector('.second-menu-mobile');
+        let is_open = 0;
+        
+        menu.addEventListener('click', () => {
+            if(!is_open) {
+                submenu.style.display = 'block';
+                is_open = 1;
+            } else {
+                submenu.style.display = 'none';
+                is_open = 0;
+            }
+        });
+        
+        
+        // Tabs
+        const tabs_titles = document.querySelectorAll('.tabs-titles>li');
+        const tabs = document.querySelectorAll('.tabs>div');
+        let active_tab = 0;
+        
+        const resetTabs = () => {
+            tabs_titles.forEach((tab_t, index) => {
+                tabs[index].style.display = 'none';
+                tab_t.removeAttribute('class');
+            });
+        };
+        
+        resetTabs();
+        tabs[active_tab].style.display = 'block';
+        tabs_titles[active_tab].className = 'active';
+        
+        
+        tabs_titles.forEach((tab_t, index) => {
+            tab_t.addEventListener('click', () => {
+                active_tab = index;
+                resetTabs();
+                tabs[index].style.display = 'block';
+                tab_t.className = 'active';
+            });
+        });
+    </script>
+</body>
+</html>
